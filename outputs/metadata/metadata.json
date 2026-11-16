@@ -1,0 +1,25 @@
+{
+  "dataset": "Auto MPG",
+  "source": "UCI Machine Learning Repository, https://archive.ics.uci.edu/dataset/9/auto+mpg",
+  "download_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data",
+  "license": "CC BY 4.0",
+  "n_rows_raw": 398,
+  "n_rows_clean": 398,
+  "target": "mpg (miles per US gallon); l_per_100km = 235.215 / mpg",
+  "transformations": [
+    "origin 1/2/3 -> США/Європа/Японія (categorical)",
+    "brand extracted from car_name; typos fixed: chevroelt->chevrolet, chevy->chevrolet, toyouta->toyota, maxda->mazda, vokswagen->volkswagen, vw->volkswagen, mercedes-benz->mercedes, capri->mercury, hi->international harvester",
+    "horsepower: 6 missing values imputed with median by (cylinders, origin); flag hp_imputed",
+    "added metric units: weight_kg, displacement_l, l_per_100km; year = 1900 + model_year",
+    "weight_group = weight terciles (легкі/середні/важкі)",
+    "diesel flag from car name; no outliers removed"
+  ],
+  "packages": {
+    "python": "3.15.2",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "scipy": "1.18.1"
+  }
+}

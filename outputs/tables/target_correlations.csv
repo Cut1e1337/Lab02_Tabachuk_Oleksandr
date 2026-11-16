@@ -1,0 +1,7 @@
+фактор,Pearson r (mpg),Spearman ρ (mpg),Pearson r (л/100км)
+weight_kg,-0.832,-0.875,0.885
+displacement_l,-0.804,-0.856,0.867
+horsepower,-0.776,-0.852,0.855
+cylinders,-0.775,-0.822,0.839
+acceleration,0.42,0.439,-0.456
+year,0.579,0.573,-0.557
