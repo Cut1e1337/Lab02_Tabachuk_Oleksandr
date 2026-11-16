@@ -42,11 +42,15 @@ Lab02_Tabachuk_Oleksandr/
 ├── notebooks/EDA.ipynb             # головний аналітичний ноутбук (зі збереженими результатами)
 ├── outputs/
 │   ├── tables/                     # описова статистика, кореляції, групові порівняння, VIF, тренди (CSV)
-│   ├── figures/                    # ключові графіки (PNG)
+│   ├── figures/                    # ключові графіки ноутбука (PNG)
+│   │   └── slides/                 # графіки, підготовлені для слайдів
 │   └── metadata/metadata.json      # джерело, трансформації, версії пакетів
 ├── reports/
-│   ├── build_presentation.py       # скрипт, що будує презентацію з outputs/
-│   └── Presentation.pptx           # готова презентація (11 слайдів)
+│   ├── Presentation.pptx           # презентація для захисту (11 слайдів, з нотатками доповідача)
+│   ├── Presentation.pdf            # та сама презентація у PDF (запасний варіант)
+│   ├── speech.md                   # текст доповіді на 5–6 хв
+│   ├── make_slide_figures.py       # будує графіки для слайдів з outputs/ і data/processed/
+│   └── build_presentation.py       # будує .pptx, .pdf і speech.md
 ├── requirements.txt
 └── README.md
 ```
@@ -58,10 +62,14 @@ pip install -r requirements.txt
 cd notebooks
 jupyter nbconvert --to notebook --execute --inplace EDA.ipynb   # або Run All у VS Code / Jupyter
 cd ..
+python reports/make_slide_figures.py
 python reports/build_presentation.py
 ```
 
-Ноутбук читає `data/raw/auto-mpg.data` (якщо файлу немає, завантажує його з URL UCI). Він зберігає очищені дані в `data/processed/`, таблиці в `outputs/tables/`, графіки в `outputs/figures/`. Презентація будується лише з цих збережених результатів, без повторного запуску EDA.
+Ноутбук читає `data/raw/auto-mpg.data` (якщо файлу немає, завантажує його з URL UCI). Він зберігає очищені дані в `data/processed/`, таблиці в `outputs/tables/`, графіки в `outputs/figures/`. Презентація будується лише з цих збережених результатів, без повторного запуску EDA. Усі числа на слайдах беруться з файлів, а не вписані вручну.
+
+## Презентація
+11 слайдів, по одній думці на слайд, заголовки сформульовано як висновки: мета й 5 дослідницьких запитань → характеристика даних → відповідь на кожне запитання (RQ1–RQ5) → висновки й обмеження. Шрифти: Bahnschrift та Segoe UI (стандартні у Windows 10/11). Якщо на іншому комп'ютері їх немає, використовуйте `Presentation.pdf`.
 
 ## Обробка даних (коротко)
 - 6 пропусків `horsepower` (1,5 %) заповнено медіаною в групі «циліндри × регіон», рядки позначено прапорцем `hp_imputed`.

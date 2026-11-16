@@ -6,3 +6,4 @@ scipy
 python-pptx
 pillow
 jupyter
+fonttools
