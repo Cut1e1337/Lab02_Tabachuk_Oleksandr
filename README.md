@@ -58,13 +58,15 @@ Lab02_Tabachuk_Oleksandr/
 ## Відтворення
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 cd notebooks
-jupyter nbconvert --to notebook --execute --inplace EDA.ipynb   # або Run All у VS Code / Jupyter
+python -m nbconvert --to notebook --execute --inplace EDA.ipynb   # або Run All у VS Code / Jupyter
 cd ..
 python reports/make_slide_figures.py
 python reports/build_presentation.py
 ```
+
+> **Windows:** якщо `jupyter ...` падає з `[WinError 4551] An Application Control policy has blocked this file`, це Smart App Control блокує `jupyter-*.exe`. Запускайте через `python -m nbconvert` / `python -m notebook` (як вище) — так використовується вже дозволений `python.exe`.
 
 Ноутбук читає `data/raw/auto-mpg.data` (якщо файлу немає, завантажує його з URL UCI). Він зберігає очищені дані в `data/processed/`, таблиці в `outputs/tables/`, графіки в `outputs/figures/`. Презентація будується лише з цих збережених результатів, без повторного запуску EDA. Усі числа на слайдах беруться з файлів, а не вписані вручну.
 

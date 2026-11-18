@@ -1,0 +1,4 @@
+{
+    "python.defaultInterpreterPath": "C:\Users\sasha\AppData\Local\Python\pythoncore-3.15-64\python.exe",
+    "jupyter.notebookFileRoot": "${fileDirname}"
+}
